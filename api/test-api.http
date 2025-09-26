@@ -1,0 +1,119 @@
+### EduNexus AI API Test Requests
+### Make sure the server is running on http://localhost:3000
+
+### Health Check
+GET http://localhost:3000/health
+
+###
+
+### Generate Study Notes
+POST http://localhost:3000/api/ai/generate-notes
+Content-Type: application/json
+
+{
+  "content": "Photosynthesis is the process by which plants convert light energy into chemical energy. During this process, plants use sunlight, carbon dioxide, and water to produce glucose and oxygen. The process occurs in the chloroplasts of plant cells, specifically in the thylakoid membranes where chlorophyll captures light energy.",
+  "options": {
+    "difficulty": "medium",
+    "style": "academic",
+    "language": "en",
+    "includeExamples": true,
+    "includeQuestions": true,
+    "maxLength": 2000
+  }
+}
+
+###
+
+### Generate Quiz
+POST http://localhost:3000/api/ai/generate-quiz
+Content-Type: application/json
+
+{
+  "content": "The water cycle, also known as the hydrological cycle, describes the continuous movement of water within the Earth and atmosphere. It involves processes such as evaporation, condensation, precipitation, and collection. Water evaporates from oceans, lakes, and rivers, forms clouds through condensation, and returns to Earth as precipitation.",
+  "options": {
+    "questionCount": 4,
+    "difficulty": "easy",
+    "questionTypes": ["multiple-choice", "true-false", "short-answer"],
+    "subject": "Environmental Science",
+    "language": "en"
+  }
+}
+
+###
+
+### Answer Question
+POST http://localhost:3000/api/ai/answer-question
+Content-Type: application/json
+
+{
+  "question": "What is the main purpose of photosynthesis?",
+  "context": "Photosynthesis is the process by which plants convert light energy into chemical energy. During this process, plants use sunlight, carbon dioxide, and water to produce glucose and oxygen. The process occurs in the chloroplasts of plant cells, specifically in the thylakoid membranes where chlorophyll captures light energy.",
+  "options": {
+    "language": "en",
+    "includeSource": true,
+    "maxLength": 300
+  }
+}
+
+###
+
+### Translate Content
+POST http://localhost:3000/api/ai/translate
+Content-Type: application/json
+
+{
+  "content": "Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed.",
+  "targetLanguage": "es",
+  "options": {
+    "preserveFormatting": true,
+    "educationalOptimization": true,
+    "confidenceThreshold": 0.8
+  }
+}
+
+###
+
+### Generate Flashcards
+POST http://localhost:3000/api/ai/generate-flashcards
+Content-Type: application/json
+
+{
+  "content": "Photosynthesis is the process by which plants convert light energy into chemical energy. During this process, plants use sunlight, carbon dioxide, and water to produce glucose and oxygen. The process occurs in the chloroplasts of plant cells, specifically in the thylakoid membranes where chlorophyll captures light energy.",
+  "options": {
+    "cardCount": 5,
+    "difficulty": "medium",
+    "cardType": "basic",
+    "language": "en",
+    "includeImages": false,
+    "includeAudio": false,
+    "subject": "Biology"
+  }
+}
+
+###
+
+### Extract Text from PDF (requires file upload)
+POST http://localhost:3000/api/ai/extract-pdf
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="document.pdf"
+Content-Type: application/pdf
+
+< ./sample-document.pdf
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+### Extract Text from Image (requires file upload)
+POST http://localhost:3000/api/ai/extract-image
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="image.jpg"
+Content-Type: image/jpeg
+
+< ./sample-image.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
