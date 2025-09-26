@@ -8,7 +8,7 @@ Your OpenAI API key has been integrated and the system is ready to use.
 
 ## 🔑 **API Key Integration Complete**
 
-✅ **OpenAI API Key**: `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`
+✅ **OpenAI API Key**: ``
 
 ✅ **Model**: GPT-4 (Latest)
 ✅ **Configuration**: Production-ready settings
