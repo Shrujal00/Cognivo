@@ -78,7 +78,7 @@ src/
    
    **Your OpenAI API key is already integrated!** The system is pre-configured with:
    ```
-   OPENAI_API_KEY=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
+   OPENAI_API_KEY=
    OPENAI_MODEL=gpt-4
    OPENAI_MAX_TOKENS=4000
    OPENAI_TEMPERATURE=0.7
